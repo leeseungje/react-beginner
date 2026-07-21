@@ -1,6 +1,6 @@
 # react-app — React 실습 환경
 
-현재 React 프로젝트에서 자주 사용하는 구성을 경험하기 위한 실습 환경입니다. React·TypeScript·Vite를 기반으로 pnpm, Tailwind CSS, Oxlint를 선택해 구성했습니다.
+현재 React 프로젝트에서 자주 사용하는 구성을 경험하기 위한 실습 환경입니다. React·TypeScript·Vite를 기반으로 pnpm, Tailwind CSS, ESLint를 선택해 구성했습니다.
 
 ## 기술 스택
 
@@ -10,7 +10,7 @@
 | 언어 | TypeScript | JavaScript에 타입을 더한 언어. 실행 전에 오류를 잡아주고 자동완성이 정확해짐 |
 | 빌드 도구 | Vite | 개발 서버와 빌드를 담당. 매우 빠른 실행과 즉시 반영(HMR)을 제공 |
 | 스타일 | Tailwind CSS v4 (`@tailwindcss/vite`) | 미리 정의된 클래스를 조합해 스타일을 입히는 CSS 프레임워크 (아래 [사용법](#tailwind-css-사용법) 참고) |
-| 린터 | Oxlint | 코드의 잠재적 문제와 실수를 자동으로 찾아주는 도구. ESLint의 최신 대안 |
+| 린터 | ESLint | 코드의 잠재적 문제와 실수를 자동으로 찾아주는 도구. 사실상 업계 표준 |
 | 패키지 매니저 | pnpm | 라이브러리를 설치·관리하는 도구. npm·yarn과 같은 역할이며 더 빠르고 디스크 효율적 |
 
 > React 프로젝트에 반드시 필요한 표준 구성은 아닙니다. 학습과 실습을 위해 선택한 하나의 현대적인 구성 예시입니다.
@@ -18,7 +18,7 @@
 - **React + TypeScript + Vite** — 현재 많이 사용하는 기본 조합
 - **pnpm** — npm·yarn 대신 선택할 수 있는 패키지 매니저
 - **Tailwind CSS** — 여러 스타일링 방법 중 하나
-- **Oxlint** — ESLint 대신 선택한 비교적 최신 린터
+- **ESLint** — 가장 널리 쓰이는 표준 린터 (Flat Config 방식)
 
 ## 사전 준비
 
@@ -53,7 +53,7 @@ pnpm dev
 | `pnpm dev` | 개발 서버 실행 (http://localhost:3000) |
 | `pnpm build` | 타입 검사(`tsc -b`) 후 `dist/`에 프로덕션 빌드 생성 |
 | `pnpm preview` | 빌드 결과물을 로컬에서 미리보기 |
-| `pnpm lint` | Oxlint로 코드 검사 |
+| `pnpm lint` | ESLint로 코드 검사 |
 
 ## 폴더 구조
 
@@ -73,7 +73,7 @@ react-app/
 ├── index.html           # HTML 진입 문서 (#root 포함)
 ├── vite.config.ts       # Vite 설정 (React·Tailwind 플러그인, 포트)
 ├── tsconfig*.json        # TypeScript 설정
-├── .oxlintrc.json       # Oxlint 규칙
+├── eslint.config.js     # ESLint 규칙 (Flat Config)
 └── package.json         # 의존성과 스크립트
 ```
 
