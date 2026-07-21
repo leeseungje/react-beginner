@@ -4,14 +4,14 @@
 
 ## 기술 스택
 
-| 항목 | 내용 |
-| --- | --- |
-| UI 라이브러리 | React 19 |
-| 언어 | TypeScript |
-| 빌드 도구 | Vite |
-| 스타일 | Tailwind CSS v4 (`@tailwindcss/vite`) |
-| 린터 | Oxlint |
-| 패키지 매니저 | pnpm |
+| 항목 | 내용 | 설명 |
+| --- | --- | --- |
+| UI 라이브러리 | React 19 | 화면을 컴포넌트 단위로 만들고, 데이터가 바뀌면 화면을 자동으로 다시 그려주는 UI 라이브러리 |
+| 언어 | TypeScript | JavaScript에 타입을 더한 언어. 실행 전에 오류를 잡아주고 자동완성이 정확해짐 |
+| 빌드 도구 | Vite | 개발 서버와 빌드를 담당. 매우 빠른 실행과 즉시 반영(HMR)을 제공 |
+| 스타일 | Tailwind CSS v4 (`@tailwindcss/vite`) | 미리 정의된 클래스를 조합해 스타일을 입히는 CSS 프레임워크 (아래 [사용법](#tailwind-css-사용법) 참고) |
+| 린터 | Oxlint | 코드의 잠재적 문제와 실수를 자동으로 찾아주는 도구. ESLint의 최신 대안 |
+| 패키지 매니저 | pnpm | 라이브러리를 설치·관리하는 도구. npm·yarn과 같은 역할이며 더 빠르고 디스크 효율적 |
 
 > React 프로젝트에 반드시 필요한 표준 구성은 아닙니다. 학습과 실습을 위해 선택한 하나의 현대적인 구성 예시입니다.
 
@@ -85,6 +85,47 @@ react-app/
 
 ## Tailwind CSS 사용법
 
+### Tailwind이 처음이라면
+
+Tailwind CSS는 **유틸리티 퍼스트(utility-first)** CSS 프레임워크입니다. `.btn` 같은 클래스를 만들어 CSS 파일에 스타일을 작성하는 대신, **CSS 속성 하나에 대응하는 작은 클래스**를 HTML(JSX)에 바로 조합합니다.
+
+퍼블리셔에게 익숙한 CSS로 비유하면, 이미 아는 속성을 클래스 이름으로 바꿔 쓰는 것에 가깝습니다.
+
+**기존 방식** — CSS 파일에 클래스 정의:
+
+```css
+.btn {
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.5rem;
+  background: #4f46e5;
+  color: #fff;
+}
+```
+
+**Tailwind 방식** — 별도 CSS 없이 클래스 조합:
+
+```tsx
+<button className="px-5 py-2.5 rounded-lg bg-indigo-600 text-white">버튼</button>
+```
+
+자주 쓰는 클래스는 이미 아는 CSS와 이렇게 대응합니다.
+
+| CSS | Tailwind | 의미 |
+| --- | --- | --- |
+| `padding: 1.25rem` | `p-5` | 안쪽 여백 |
+| `margin-top: 1rem` | `mt-4` | 위쪽 바깥 여백 |
+| `display: flex` | `flex` | 플렉스 레이아웃 |
+| `gap: 1.5rem` | `gap-6` | 자식 간격 |
+| `background: ...` | `bg-indigo-600` | 배경색 |
+| `border-radius` | `rounded-lg` | 모서리 둥글기 |
+| `:hover { ... }` | `hover:bg-indigo-500` | 마우스 오버 상태 |
+| 다크 모드 | `dark:bg-gray-950` | 다크 테마일 때 |
+
+- **장점:** CSS 파일과 클래스명을 오갈 필요 없이 빠르게 작성하고, 미리 정의된 값으로 디자인이 일관됩니다.
+- **주의:** `bg-${color}`처럼 문자열을 조합해 만든 클래스는 인식되지 않습니다. 클래스명은 항상 완전한 형태로 작성합니다.
+
+### 이 프로젝트에서
+
 별도 설정 파일 없이 JSX의 `className`에 유틸리티 클래스를 바로 작성하면 됩니다.
 
 ```tsx
@@ -95,6 +136,11 @@ react-app/
 
 - Tailwind v4는 `tailwind.config.js`와 PostCSS 설정이 **필요 없습니다.**
 - 설정을 커스터마이즈하려면 [src/index.css](src/index.css)에서 `@theme` 등으로 확장합니다.
+
+### 더 알아보기
+
+- [Tailwind CSS 기본 개념과 기초 가이드 (velog)](https://velog.io/@rimmz/Tailwind-CSS-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90%EA%B3%BC-%EA%B8%B0%EC%B4%88-%EA%B0%80%EC%9D%B4%EB%93%9C) — 유틸리티 퍼스트 개념과 기초 사용법을 한국어로 정리
+- [Tailwind CSS 공식 문서](https://tailwindcss.com/docs) — 클래스 이름을 검색해 사용법 확인
 
 ## 실습 시작하기
 
