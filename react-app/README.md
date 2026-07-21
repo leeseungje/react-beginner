@@ -65,7 +65,8 @@ react-app/
 │   └── icons.svg
 ├── src/                 # 애플리케이션 소스
 │   ├── main.tsx         # 진입점 — BrowserRouter로 App을 감싸 렌더링
-│   ├── App.tsx          # 레이아웃 + 내비게이션 + 라우트 정의
+│   ├── App.tsx          # 레이아웃 + 내비게이션 (라우트는 useRoutes로 연결)
+│   ├── routes.tsx       # 라우트 정의(경로↔페이지)를 배열로 분리
 │   ├── pages/           # 경로(URL)별 페이지
 │   │   ├── Home.tsx     # '/' 경로
 │   │   └── TabsPage.tsx # '/tabs' 경로 — 배열+map으로 탭 구현
@@ -90,7 +91,7 @@ react-app/
 
 ### 라우팅과 탭 페이지
 
-- **라우팅**은 [React Router](https://reactrouter.com/)로 처리합니다. `App.tsx`의 `<Routes>`에 경로(`path`)와 페이지(`element`)를 연결하고, `<NavLink>`로 메뉴를 만듭니다.
+- **라우팅**은 [React Router](https://reactrouter.com/)로 처리합니다. 경로(`path`)와 페이지(`element`)의 연결은 [src/routes.tsx](src/routes.tsx)에 배열로 분리했고, `App.tsx`는 `useRoutes(routes)`로 이를 렌더링하며 `<NavLink>`로 메뉴만 만듭니다. 페이지를 늘릴 때는 `routes.tsx`에 항목을 추가합니다.
 - **탭 페이지**([src/pages/TabsPage.tsx](src/pages/TabsPage.tsx))는 탭 데이터를 배열로 두고 `map`으로 버튼을 반복 렌더링합니다. 선택된 탭은 `useState`로 관리하며, 새 탭은 배열에 항목만 추가하면 됩니다.
 
 ## Tailwind CSS 사용법
