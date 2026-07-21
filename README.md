@@ -268,6 +268,20 @@ TypeScript 한국어 자료는 커뮤니티 번역이므로 최신 문법이나 
 - [Testing Library](https://testing-library.com/docs/)
 - [web.dev Performance](https://web.dev/learn/performance/)
 
+### 강의 (선택)
+
+공식 문서로 학습하되, 영상 설명이 필요할 때 보조로 활용합니다. 각 강의를 로드맵 단계에 매핑했습니다.
+
+| 강의 | 강사 | 로드맵 단계 | 언제 보나 |
+| --- | --- | --- | --- |
+| [Javascript ES6+ 초급](https://www.inflearn.com/course/ecmascript-6-flow) | 정재남 | 1단계 (JS 기초) | **가장 먼저.** JS 문법 감각 잡기 |
+| [타입스크립트 입문 - 기초부터 실전까지](https://www.inflearn.com/course/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9E%85%EB%AC%B8) | 캡틴판교 | 2단계 (TS) | 기본 타입~인터페이스까지. 나머지는 나중에 |
+| [실전 리액트 프로그래밍](https://www.inflearn.com/course/%EC%8B%A4%EC%A0%84-%EB%A6%AC%EC%95%A1%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D) | 이재승 | 3~5단계 (React) | 중급 이상·Redux 포함. React 공식 문서로 기초 다진 뒤 |
+| [코어 자바스크립트](https://www.inflearn.com/course/%ED%95%B5%EC%8B%AC%EA%B0%9C%EB%85%90-javascript-flow) | 정재남 | 1단계 **심화** | 클로저·this·실행 컨텍스트가 막힐 때 (약 2시간) |
+| [Javascript ES6+ 중급](https://www.inflearn.com/course/es6-2) | 정재남 | 후순위 | Promise 깊이가 필요할 때 해당 파트만 |
+
+> **주의:** 정재남 강사 3종(초급·중급·코어)이 모두 좋다 보니 "JS를 완벽히 끝내고 React로" 가는 함정에 빠지기 쉽습니다. **ES6 초급 + TS 앞부분까지만 하고 React를 먼저 만져보세요.** 중급·코어는 React를 하며 필요해지는 순간 돌아오는 편이 동기 유지에 유리합니다.
+
 ## Commit Convention
 
 ```text
