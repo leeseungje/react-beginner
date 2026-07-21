@@ -200,9 +200,19 @@ React는 **JavaScript 위에서 실행되는 UI 라이브러리**입니다. Type
 
 ## 참고 자료
 
-- [MDN JavaScript Guide](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide)
-- [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/)
-- [React Learn](https://react.dev/learn)
+### 한국어로 먼저 보기
+
+- [MDN JavaScript 안내서 — 한국어](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide)
+- [모던 JavaScript 튜토리얼 — 한국어](https://ko.javascript.info/)
+- [React 공식 학습 문서 — 한국어](https://ko.react.dev/learn)
+- [TypeScript Handbook — 한국어 번역](https://typescript-kr.github.io/)
+
+TypeScript 한국어 자료는 커뮤니티 번역이므로 최신 문법이나 설정이 다를 수 있습니다. 이해가 되지 않거나 내용이 충돌할 때는 아래 공식 영문 문서를 기준으로 확인합니다.
+
+### 공식 원문과 다음 단계 자료
+
+- [TypeScript 공식 Handbook](https://www.typescriptlang.org/docs/handbook/)
+- [React 공식 영문 문서](https://react.dev/learn)
 - [Testing Library](https://testing-library.com/docs/)
 - [web.dev Performance](https://web.dev/learn/performance/)
 
