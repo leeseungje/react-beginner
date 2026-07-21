@@ -9,6 +9,7 @@
 | UI 라이브러리 | React 19 | 화면을 컴포넌트 단위로 만들고, 데이터가 바뀌면 화면을 자동으로 다시 그려주는 UI 라이브러리 |
 | 언어 | TypeScript | JavaScript에 타입을 더한 언어. 실행 전에 오류를 잡아주고 자동완성이 정확해짐 |
 | 빌드 도구 | Vite | 개발 서버와 빌드를 담당. 매우 빠른 실행과 즉시 반영(HMR)을 제공 |
+| 라우팅 | React Router | URL 경로에 따라 다른 페이지를 보여주는 라이브러리 |
 | 스타일 | Tailwind CSS v4 (`@tailwindcss/vite`) | 미리 정의된 클래스를 조합해 스타일을 입히는 CSS 프레임워크 (아래 [사용법](#tailwind-css-사용법) 참고) |
 | 린터 | ESLint | 코드의 잠재적 문제와 실수를 자동으로 찾아주는 도구. 사실상 업계 표준 |
 | 패키지 매니저 | pnpm | 라이브러리를 설치·관리하는 도구. npm·yarn과 같은 역할이며 더 빠르고 디스크 효율적 |
@@ -63,8 +64,11 @@ react-app/
 │   ├── favicon.svg
 │   └── icons.svg
 ├── src/                 # 애플리케이션 소스
-│   ├── main.tsx         # 진입점 — App을 #root에 렌더링
-│   ├── App.tsx          # 루트 컴포넌트 — 레이아웃과 조합 담당
+│   ├── main.tsx         # 진입점 — BrowserRouter로 App을 감싸 렌더링
+│   ├── App.tsx          # 레이아웃 + 내비게이션 + 라우트 정의
+│   ├── pages/           # 경로(URL)별 페이지
+│   │   ├── Home.tsx     # '/' 경로
+│   │   └── TabsPage.tsx # '/tabs' 경로 — 배열+map으로 탭 구현
 │   ├── components/      # 재사용·기능 컴포넌트
 │   │   ├── Button.tsx   # 재사용 버튼 (Props·children)
 │   │   └── Counter.tsx  # 카운트 상태를 가진 기능 컴포넌트
@@ -80,8 +84,14 @@ react-app/
 ### 실행 흐름
 
 1. 브라우저가 [index.html](index.html)을 열고 `<div id="root">`을 준비합니다.
-2. [src/main.tsx](src/main.tsx)가 [src/App.tsx](src/App.tsx)를 `#root`에 렌더링합니다.
-3. [src/index.css](src/index.css)의 `@import "tailwindcss"`로 Tailwind 유틸리티가 로드됩니다.
+2. [src/main.tsx](src/main.tsx)가 `BrowserRouter`로 감싼 [src/App.tsx](src/App.tsx)를 `#root`에 렌더링합니다.
+3. [src/App.tsx](src/App.tsx)가 현재 URL에 맞는 `pages/`의 페이지를 보여줍니다.
+4. [src/index.css](src/index.css)의 `@import "tailwindcss"`로 Tailwind 유틸리티가 로드됩니다.
+
+### 라우팅과 탭 페이지
+
+- **라우팅**은 [React Router](https://reactrouter.com/)로 처리합니다. `App.tsx`의 `<Routes>`에 경로(`path`)와 페이지(`element`)를 연결하고, `<NavLink>`로 메뉴를 만듭니다.
+- **탭 페이지**([src/pages/TabsPage.tsx](src/pages/TabsPage.tsx))는 탭 데이터를 배열로 두고 `map`으로 버튼을 반복 렌더링합니다. 선택된 탭은 `useState`로 관리하며, 새 탭은 배열에 항목만 추가하면 됩니다.
 
 ## Tailwind CSS 사용법
 
